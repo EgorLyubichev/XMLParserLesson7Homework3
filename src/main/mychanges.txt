@@ -1,0 +1,8 @@
+В классе XMLParser в методе parseDocument:
+исходная строка 73:
+        if (document.charAt(currentParsingPosition) != '<') {
+меняю на
+        if (!document.startsWith("<?")) {
+Canceled!
+
+
