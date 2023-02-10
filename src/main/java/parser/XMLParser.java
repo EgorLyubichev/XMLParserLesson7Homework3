@@ -110,7 +110,7 @@ public class XMLParser {
                     String newTagName = getTagName(); //extract the name
                     XMLTag newTag = new XMLTag(newTagName);
                     current.getNestedTags().add(newTag); //add to childs
-                    if (document.charAt(currentParsingPosition - 1) != '/') { //if it is self-closing tag, no more actions we stay in current tag
+                    if (document.charAt(currentParsingPosition) != '/') { //if it is self-closing tag, no more actions we stay in current tag
                         // Otherwise store the parent in the stack and process new current tag
                         currentNodePath.push(current);
                         current = newTag;

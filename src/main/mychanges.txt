@@ -1,8 +1,10 @@
-В классе XMLParser в методе parseDocument:
-исходная строка 73:
-        if (document.charAt(currentParsingPosition) != '<') {
-меняю на
-        if (!document.startsWith("<?")) {
-Canceled!
+XMLParser:
+line 82 it was:
+currentParsingPosition++;
+line 82 it became:
+currentParsingPosition+=2;
 
-
+line 113 it was:
+if (document.charAt(currentParsingPosition - 1) != '/') {
+line 113 it became:
+if (document.charAt(currentParsingPosition) != '/') {

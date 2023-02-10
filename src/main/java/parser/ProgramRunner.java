@@ -5,7 +5,7 @@ import utilities.Iterator;
 public class ProgramRunner {
 
     public static void main(String[] args) {
-        XMLParser parser = new XMLParser("src/main/java/xmlfiles/example3.xml");
+        XMLParser parser = new XMLParser("src/main/java/xmlfiles/example2.xml");
         parser.parseDocument();
         if (parser.getErrors().isEmpty()) {
             System.out.println("Valid xml");

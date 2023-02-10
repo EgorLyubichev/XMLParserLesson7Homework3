@@ -134,18 +134,25 @@ public class XMLParserTest {
 
     @Test
     public void testShowMeTags(){
-        XMLParser parser = new XMLParser("src/main/java/xmlfiles/example1.xml");
+        XMLParser parser = new XMLParser("src/main/java/xmlfiles/example3.xml");
         parser.parseDocument();
 
         try {
             Field root = parser.getClass().getDeclaredField("root");
             root.setAccessible(true);
             XMLTag xmlTag = (XMLTag) root.get(parser);
-            System.out.println(xmlTag.getName());
+            System.out.println("name: " + xmlTag.getName());
             ListADT<XMLTag> nested = xmlTag.getNestedTags();
             Iterator<XMLTag> iterator = nested.iterator();
             while (iterator.hasNext()){
-                System.out.println(iterator.next().getName());
+                System.out.println("nested tag: " + iterator.next().getName());
+            }
+
+            ListADT<XMLTag.TagProperty> property = xmlTag.getProperties();
+            Iterator<XMLTag.TagProperty> propertyIterator = property.iterator();
+            while (propertyIterator.hasNext()){
+                System.out.println("property tag: " + propertyIterator.next().getName()
+                        + "value " + propertyIterator.next().getValue());
             }
 
 
