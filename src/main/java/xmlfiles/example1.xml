@@ -1,7 +1,4 @@
-<? ?>
-
-<bookstore>
-
-    <book></book>
-
+<?Instruction?>
+<bookstore language="en">
+    <book language="en">Book</book>
 </bookstore>

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<example coolAtribute="Good for You!">
+<example>
     <test>
-        <title>MyTestForCarolina)))</title>
+        <title/>
     </test>
+    <test>
+        <title>Title2</title>
+    </test>
+    <test>
+        <title>Title3</title>
+    </test>
+
 </example>

@@ -38,7 +38,7 @@ public class XMLParser {
      * @param filename name of the xml file to parse
      */
     public XMLParser(String filename) {
-        Scanner  scanner = null;
+        Scanner scanner = null;
         try {
             scanner = new Scanner(new File(filename));
         } catch (FileNotFoundException e) {
@@ -50,14 +50,14 @@ public class XMLParser {
         while (scanner.hasNext()) {
             lines.add(scanner.nextLine());
         }
-        document="";
+        document = "";
     }
 
     //merge strings to one for comfort parsing
     private String transformLinesToOne() {
         Iterator<String> lineIterator = lines.iterator();
         while (lineIterator.hasNext()) {
-            document+=lineIterator.next()+'\n';
+            document += lineIterator.next() + '\n';
         }
         document = document.trim();
         return document;
@@ -68,7 +68,7 @@ public class XMLParser {
      */
     public void parseDocument() {
         transformLinesToOne();
-        currentParsingPosition =0;
+        currentParsingPosition = 0;
         //we should have the root tag or instruction in the start of the document
         if (document.charAt(currentParsingPosition) != '<') {
             errors.add("Document should start from root tag or instruction. ");
@@ -79,7 +79,7 @@ public class XMLParser {
             skipInstructionTag();
         }
         //go to the content of the root node
-        currentParsingPosition++;
+        currentParsingPosition+=2;
         //get the root tag name
         root = new XMLTag(getTagName());
         //skip closing >
@@ -92,7 +92,7 @@ public class XMLParser {
             }
             //looking for child tag or closing for current tag, ignore the content of the node
             while (document.charAt(currentParsingPosition) != '<') {
-                current.setText(current.getText()+document.charAt(currentParsingPosition));
+                current.setText(current.getText() + document.charAt(currentParsingPosition));
                 currentParsingPosition++;
             }
             currentParsingPosition++; //go to content of tag name
@@ -110,7 +110,7 @@ public class XMLParser {
                     String newTagName = getTagName(); //extract the name
                     XMLTag newTag = new XMLTag(newTagName);
                     current.getNestedTags().add(newTag); //add to childs
-                    if (document.charAt(currentParsingPosition -1)!='/') { //if it is self-closing tag, no more actions we stay in current tag
+                    if (document.charAt(currentParsingPosition - 1) != '/') { //if it is self-closing tag, no more actions we stay in current tag
                         // Otherwise store the parent in the stack and process new current tag
                         currentNodePath.push(current);
                         current = newTag;
@@ -124,15 +124,17 @@ public class XMLParser {
     private String getTagName() {
         String tagName = "";
         //read tag name
-        while (currentParsingPosition < document.length() && document.charAt(currentParsingPosition) != '>' && document.charAt(currentParsingPosition) != ' ' && document.charAt(currentParsingPosition) != '/') {
-            tagName +=document.charAt(currentParsingPosition);
+        while (currentParsingPosition < document.length()
+                && document.charAt(currentParsingPosition) != '>'
+                && document.charAt(currentParsingPosition) != ' '
+                && document.charAt(currentParsingPosition) != '/') {
+            tagName += document.charAt(currentParsingPosition);
             currentParsingPosition++;
         }
         //we read all document but no > for tag name found
         if (currentParsingPosition == document.length()) {
-            errors.add("Tag "+tagName+" name never closed. Tag names must have format <name>.");
-        }
-        else {
+            errors.add("Tag " + tagName + " name never closed. Tag names must have format <name>.");
+        } else {
             if (document.charAt(currentParsingPosition) == ' ') { //there are attributes here, ignore it
                 currentParsingPosition = document.indexOf('>', currentParsingPosition); //find >
                 if (currentParsingPosition == -1) { //no more > in the document
@@ -151,22 +153,22 @@ public class XMLParser {
             return false;
         } else {
             //skip ?> itself
-            currentParsingPosition +=2;
+            currentParsingPosition += 2;
         }
         return true;
     }
 
     private boolean closeTag(String tagName) {
-        int start = currentParsingPosition +1;
+        int start = currentParsingPosition + 1;
         currentParsingPosition = document.indexOf(">", currentParsingPosition);
         if (currentParsingPosition == -1) { //missing > for closing tag
-            errors.add("The tag "+tagName+" closed incorrectly. Missing >");
+            errors.add("The tag " + tagName + " closed incorrectly. Missing >");
             return false;
         } else {
             //extract value between < and >. Check if it match current tag name
             String closingName = document.substring(start, currentParsingPosition);
             if (!closingName.equals(tagName)) {
-                errors.add("Unexpected closing tag "+closingName);
+                errors.add("Unexpected closing tag " + closingName);
                 return false;
             }
         }
