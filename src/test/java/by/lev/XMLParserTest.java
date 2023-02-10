@@ -134,7 +134,7 @@ public class XMLParserTest {
 
     @Test
     public void testShowMeTags(){
-        XMLParser parser = new XMLParser("src/main/java/xmlfiles/example3.xml");
+        XMLParser parser = new XMLParser("src/main/java/xmlfiles/example2.xml");
         parser.parseDocument();
 
         try {

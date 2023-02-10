@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <bookstore>
-
-<!--    <book language="ru">-->
-<!--        <author>Alexander Pushkin</author>-->
-<!--        <title>Eugene Onegin</title>-->
-<!--        <year>1830</year>-->
-<!--        <price>25.00</price>-->
-<!--    </book>-->
-<!--    <book language="ru">-->
-<!--        <author>Alexander Pushkin</author>-->
-<!--        <title>Boris Godunov</title>-->
-<!--        <year>1825</year>-->
-<!--        <price>23.90</price>-->
-<!--    </book>-->
-<!--    <book language="ru">-->
-<!--        <author>Alexander Pushkin</author>-->
-<!--        <title>The Captain's Daughter</title>-->
-<!--        <year>1836</year>-->
-<!--        <price>27.20</price>-->
-<!--    </book>-->
-<!--    <book language="ru">-->
-<!--        <author>Mikhail Lermontov</author>-->
-<!--        <title>A Hero of Our Time</title>-->
-<!--        <year>1839</year>-->
-<!--        <price>26.20</price>-->
-<!--    </book>-->
-<!--    <book language="ru">-->
-<!--        <author>Nikolai Gogol</author>-->
-<!--        <title>Dead Souls</title>-->
-<!--        <year>1835</year>-->
-<!--        <price>24.90</price>-->
-<!--    </book>-->
-<!--    <book language="ru">-->
-<!--        <author>Leo Tolstoy</author>-->
-<!--        <title>War and Peace</title>-->
-<!--        <year>1869</year>-->
-<!--        <price>35.99</price>-->
-<!--    </book>-->
-
+    <book language="ru">
+        <author>Alexander Pushkin</author>
+        <title>Eugene Onegin</title>
+        <year>1830</year>
+        <price>25.00</price>
+    </book>
+    <book language="ru">
+        <author>Alexander Pushkin</author>
+        <title>Boris Godunov</title>
+        <year>1825</year>
+        <price>23.90</price>
+    </book>
+    <book language="ru">
+        <author>Alexander Pushkin</author>
+        <title>The Captain's Daughter</title>
+        <year>1836</year>
+        <price>27.20</price>
+    </book>
+    <book language="ru">
+        <author>Mikhail Lermontov</author>
+        <title>A Hero of Our Time</title>
+        <year>1839</year>
+        <price>26.20</price>
+    </book>
+    <book language="ru">
+        <author>Nikolai Gogol</author>
+        <title>Dead Souls</title>
+        <year>1835</year>
+        <price>24.90</price>
+    </book>
+    <book language="ru">
+        <author>Leo Tolstoy</author>
+        <title>War and Peace</title>
+        <year>1869</year>
+        <price>35.99</price>
+    </book>
 </bookstore>
