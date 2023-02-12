@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XMLParserTest {
+public class XMLParserTestOLD {
 
     @Test
     public void showMeYourLines() {
